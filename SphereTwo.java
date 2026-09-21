@@ -28,6 +28,7 @@ public final class SphereTwo extends Shape {
         return surfaceArea;
     }
 
+    @Override
     public String toString() {
         return String.format("Sphere - Radius: %.2f", this.radius);
     }

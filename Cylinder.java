@@ -1,17 +1,22 @@
-public final class Cone extends Shape {
-    private double radius;
-    private double height;
+public final class Cylinder extends Shape {
+    private double radius, height;
 
-    public Cone(double radius, double height) {
+    public Cylinder(double radius, double height) {
         setRadius(radius);
         setHeight(height);
     }
 
     public void setRadius(double radius) {
+        if (radius <= 0) {
+            radius = 1;
+        }
         this.radius = radius;
     }
 
     public void setHeight(double height) {
+        if (height <= 0) {
+            height = 1;
+        }
         this.height = height;
     }
 
@@ -25,18 +30,18 @@ public final class Cone extends Shape {
 
     @Override
     public double calcVolume() {
-        double volume = (1.0 / 3) * Math.PI * Math.pow(this.radius, 2) * this.height;
+        double volume = Math.PI * Math.pow(this.radius, 2) * this.height;
         return volume;
     }
 
     @Override
     public double calcSurfaceArea() {
-        double surfaceArea = Math.PI * Math.pow(this.radius, 2);
+        double surfaceArea = 2.0 * Math.PI * this.radius * this.height;
         return surfaceArea;
     }
 
     @Override
     public String toString() {
-        return String.format("Cone - Radius: %.2f, Height: %.2f", this.radius, this.height);
+        return String.format("Cylinder - Radius: %.2f, Height: %.2f", this.radius, this.height);
     }
 }
