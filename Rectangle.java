@@ -1,4 +1,4 @@
-public class Rectangle {
+public class Rectangle extends PlaneFigure {
     private double length;
     private double width;
 
@@ -34,16 +34,19 @@ public class Rectangle {
         return this.width;
     }
 
+    @Override
     public double calcArea() {
         double area = this.length * this.width;
         return area;
     }
 
+    @Override
     public double calcPerimeter() {
         double perimeter = (this.length + this.width) * 2;
         return perimeter;
     }
 
+    @Override
     public String toString() {
         String combinedLine = "Length: " + getLength() + "\nWidth: " + getWidth();
         return combinedLine;
