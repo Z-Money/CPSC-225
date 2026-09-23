@@ -23,13 +23,13 @@ public class EmployeeManagementAppZK {
     }
 
     public EmployeeZK createEmployee(Scanner scan, int id) {
-        String choice = "";
-        while (!choice.equals("1") && !choice.equals("2")) {
+        String empType = "";
+        while (!empType.equals("1") && !empType.equals("2")) {
             System.out.println("1. Hourly Employee");
             System.out.println("2. Salaried Employee");
             System.out.print("Enter option here (#): ");
-            choice = scan.nextLine();
-            if (!choice.equals("1") && !choice.equals("2")) {
+            empType = scan.nextLine();
+            if (!empType.equals("1") && !empType.equals("2")) {
                 System.out.println("Invalid choice. Try again.\n");
             }
         }
@@ -42,10 +42,11 @@ public class EmployeeManagementAppZK {
 
         EmployeeZK emp;
 
-        if (choice.equals("1")) {
+        if (empType.equals("1")) {
             System.out.print("Number of Hours Worked: ");
             String numOfHoursStr = scan.nextLine();
             int numOfHours = Integer.parseInt(numOfHoursStr);
+
             System.out.print("Pay Rate: ");
             String payRateStr = scan.nextLine();
             double payRate = Double.parseDouble(payRateStr);
@@ -65,13 +66,13 @@ public class EmployeeManagementAppZK {
     }
 
     public void displayEmployeeData(EmployeeZK employee) {
-        System.out.println(employee);
+        System.out.println("\n" + employee.toString());
         if (employee instanceof HourlyEmpZK hourlyEmpZK) {
             System.out.println("Type: Hourly");
             System.out.println("Pay Rate: " + hourlyEmpZK.getPayRate());
             System.out.println("Hours Worked: " + hourlyEmpZK.getHoursWorked());
             hourlyEmpZK.calcPay();
-            System.out.println("Weekly Pay: " + hourlyEmpZK.getPay());
+            System.out.printf("Weekly Pay: %.2f\n", hourlyEmpZK.getPay());
         } else {
             System.out.println("Type: Salaried");
             System.out.println("Salary: " + ((SalariedEmpZK) employee).getAnnualSalary());

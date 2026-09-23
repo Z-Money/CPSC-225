@@ -17,7 +17,7 @@ public class SalariedEmpZK extends EmployeeZK {
     }
 
     @Override
-    void calcPay() {
+    public void calcPay() {
         double weeklyPay = this.annualSalary / 52;
         setPay(weeklyPay);
     }

@@ -10,7 +10,7 @@ public abstract class EmployeeZK {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-    };
+    }
 
     public int getId() {
         return this.id;
@@ -35,7 +35,7 @@ public abstract class EmployeeZK {
         this.pay = pay;
     }
 
-    abstract void calcPay();
+    public abstract void calcPay();
 
     @Override
     public String toString() {

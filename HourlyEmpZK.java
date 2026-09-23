@@ -35,5 +35,4 @@ public class HourlyEmpZK extends EmployeeZK {
             setPay((40 * this.payRate) + ((this.hoursWorked - 40) * (this.payRate * 1.5)));
         }
     }
-
 }
