@@ -67,17 +67,19 @@ public class EmployeeManagementAppZK {
 
     public void displayEmployeeData(EmployeeZK employee) {
         System.out.println("\n" + employee.toString());
-        if (employee instanceof HourlyEmpZK hourlyEmpZK) {
+        if (employee instanceof HourlyEmpZK hourlyEmp) {
             System.out.println("Type: Hourly");
-            System.out.println("Pay Rate: " + hourlyEmpZK.getPayRate());
-            System.out.println("Hours Worked: " + hourlyEmpZK.getHoursWorked());
-            hourlyEmpZK.calcPay();
+            System.out.println("Pay Rate: " + hourlyEmp.getPayRate());
+            System.out.println("Hours Worked: " + hourlyEmp.getHoursWorked());
+            hourlyEmp.calcPay();
             System.out.printf("Weekly Pay: %.2f\n", hourlyEmpZK.getPay());
-        } else {
+        } else if (employee instanceof SalariedEmpZK salaryEmp) {
             System.out.println("Type: Salaried");
-            System.out.println("Salary: " + ((SalariedEmpZK) employee).getAnnualSalary());
-            employee.calcPay();
-            System.out.printf("Weekly Pay: %.2f\n", employee.getPay());
+            System.out.println("Salary: " + salaryEmp.getAnnualSalary());
+            salaryEmp.calcPay();
+            System.out.printf("Weekly Pay: %.2f\n", salaryEmp.getPay());
+        } else {
+            System.out.println("Employee type is invalid.");
         }
     }
 }
