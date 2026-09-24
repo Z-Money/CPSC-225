@@ -1,3 +1,11 @@
+/**
+ * Name: Zachariah Kersey
+ * Course: CPSC 225
+ * Homework Number: 03
+ * Date: 9/23/2026
+ * Helpers: N/A
+ */
+
 public class SalariedEmpZK extends EmployeeZK {
     private double annualSalary;
 
