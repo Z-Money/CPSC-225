@@ -81,7 +81,7 @@ public class EmployeeManagementAppZK {
             System.out.println("Pay Rate: " + hourlyEmp.getPayRate());
             System.out.println("Hours Worked: " + hourlyEmp.getHoursWorked());
             hourlyEmp.calcPay();
-            System.out.printf("Weekly Pay: %.2f\n", hourlyEmpZK.getPay());
+            System.out.printf("Weekly Pay: %.2f\n", hourlyEmp.getPay());
         } else if (employee instanceof SalariedEmpZK salaryEmp) {
             System.out.println("Type: Salaried");
             System.out.println("Salary: " + salaryEmp.getAnnualSalary());
