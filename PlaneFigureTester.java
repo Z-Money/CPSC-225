@@ -6,6 +6,8 @@ public class PlaneFigureTester {
         PlaneFigureTester pft = new PlaneFigureTester();
         Circle2 circ = pft.getCircle(scan);
         System.out.printf("Area: %.1f%n", circ.calcArea());
+        Rectangle2 rect = pft.getRectangle(scan);
+        System.out.printf("Area: %.1f%n", rect.calcArea());
         scan.close();
     }
 
@@ -28,5 +30,28 @@ public class PlaneFigureTester {
             }
         }
         return circ;
+    }
+
+    public Rectangle2 getRectangle(Scanner scan) {
+        Rectangle2 rect = null;
+        while (true) {
+            System.out.print("Enter the length: ");
+            double length = Double.parseDouble(scan.nextLine());
+            System.out.print("Enter the width: ");
+            double width = Double.parseDouble(scan.nextLine());
+            try {
+                rect = new Rectangle2(length, width);
+            } catch (RectangleException e) {
+                System.out.println(e.getMessage());
+                System.out.println("Try again");
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                System.out.println("Try again");
+            }
+            if (rect != null) {
+                break;
+            }
+        }
+        return rect;
     }
 }
