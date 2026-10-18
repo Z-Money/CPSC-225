@@ -16,7 +16,7 @@ public class Rectangle2 extends PlaneFigure {
 
     private void setWidth(double width) throws RectangleException {
         if (width <= 0) {
-            throw new RectangleException("Invalid length.");
+            throw new RectangleException("Invalid width.");
         }
         this.width = width;
     }
