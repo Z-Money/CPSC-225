@@ -1,4 +1,4 @@
-public class Vehicle {
+public abstract class Vehicle {
     private String code, description;
     private int year, mileage;
     private double dailyRate;
@@ -8,9 +8,9 @@ public class Vehicle {
         this.code = code;
         this.description = description;
         this.year = year;
-        this.dailyRate = dailyRate;
+        setDailyRate(dailyRate);
         this.available = true;
-        this.mileage = mileage;
+        setMileage(mileage);
     }
 
     public String getCode() {

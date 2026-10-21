@@ -14,7 +14,7 @@ public class Truck extends Vehicle {
 
     @Override
     public double calcRentalCost(int numOfRentalDays) {
-        double rentalCost = (getDailyRate() * numOfRentalDays) + 25.00;
+        double rentalCost = (getDailyRate() + 25.00) * numOfRentalDays;
         return rentalCost;
     }
 }
