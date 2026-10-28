@@ -130,19 +130,19 @@ public class VehicleRentalAppZK {
         String description = promptString(scan, "Enter the vehicle's description: ");
         int year = promptInt(scan, "Enter the vehicle's manufactured year: ", 1900, 2050);
         double dailyRate = promptDouble(scan, "Enter the vehicle's daily rate: ", 0.1, 9999);
-        int mileage = promptInt(scan, "Enter the vehicle's mileage: ", 0, -1);
+        int mileage = promptInt(scan, "Enter the vehicle's mileage: ", 0, 300000);
         Vehicle vehicle = null;
         switch (vehicleType) {
             case 1 -> {
-                int numOfSeats = promptInt(scan, "Enter the number of seats: ", 1, -1);
+                int numOfSeats = promptInt(scan, "Enter the number of seats: ", 1, 8);
                 vehicle = new Car(code, description, year, dailyRate, mileage, numOfSeats);
             }
             case 2 -> {
-                double towingCapacity = promptDouble(scan, "Enter the towing capacity: ", 0, -1);
+                double towingCapacity = promptDouble(scan, "Enter the towing capacity: ", 0, 15000);
                 vehicle = new Truck(code, description, year, dailyRate, mileage, towingCapacity);
             }
             case 3 -> {
-                int engineCC = promptInt(scan, "Enter the engine CC: ", 0, -1);
+                int engineCC = promptInt(scan, "Enter the engine CC: ", 0, 2000);
                 vehicle = new Motorcycle(code, description, year, dailyRate, mileage, engineCC);
             }
         }
@@ -180,7 +180,7 @@ public class VehicleRentalAppZK {
         if (vehicle == null) {
             System.out.println("No vehicles found with that code.");
         } else {
-            int mileage = promptInt(scan, "Enter the new mileage: ", 0, -1);
+            int mileage = promptInt(scan, "Enter the new mileage: ", 0, 300000);
             int updatedMileage = fleet.updateMileage(vehicle, mileage);
             if (mileage == -1) {
                 System.out.println("Mileage failed to update.");
@@ -211,7 +211,7 @@ public class VehicleRentalAppZK {
         if (vehicle == null) {
             System.out.println("No vehicles found with that code.");
         } else {
-            int rentalDayCount = promptInt(scan, "Enter the number of rental days: ", 1, -1);
+            int rentalDayCount = promptInt(scan, "Enter the number of rental days: ", 1, 31);
             double rentalEstimate = vehicle.calcRentalCost(rentalDayCount);
             System.out.printf("Rental Estimate for %d days: %.2f%n", rentalDayCount, rentalEstimate);
         }
