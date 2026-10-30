@@ -5,7 +5,12 @@ public class Recursion2 {
         System.out.printf("Total in array: %d%n", total);
         int n = 7;
         System.out.printf("Fib(%d) = %d%n", n, fib(n));
-        System.out.printf("Index of %d: %d", 23, recBinarySearch(numbers, 99));
+        System.out.printf("Index of %d: %d%n", 23, recBinarySearch(numbers, 99));
+
+        int[] numbers2 = { 2, 7, 10, 17 };
+        int target = 17;
+        int pos = countNumbers(numbers2, target, 0, numbers2.length - 1);
+        System.out.printf("%d was found %d time(s)%n", target, pos);
     }
 
     public static int recSum(int[] listOfNums, int listLen) {
@@ -38,5 +43,17 @@ public class Recursion2 {
             return binSearchHelper(nums, target, left, mid - 1);
         }
         return binSearchHelper(nums, target, mid + 1, right);
+    }
+
+    public static int countNumbers(int[] nums, int targetNum, int left, int right) {
+        if (left > right) {
+            return 0;
+        }
+        int mid = (left + right) / 2;
+        int count = 0;
+        if (nums[mid] == targetNum) {
+            count = 1;
+        }
+        return count + countNumbers(nums, targetNum, left, mid - 1) + countNumbers(nums, targetNum, mid + 1, right);
     }
 }
