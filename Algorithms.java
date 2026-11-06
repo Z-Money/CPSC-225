@@ -17,6 +17,14 @@ public class Algorithms {
 
         bubbleSort(strings, strings.length);
         displayStrings(strings, strings.length);
+
+        target = "A234";
+        pos = binarySearchStrings(strings, target, strings.length);
+        if (pos != -1) {
+            System.out.printf("%s was found at position %d.%n", target, pos);
+        } else {
+            System.out.printf("%s was not found.%n", target);
+        }
     }
 
     public int linearSearchStrings(String[] strings, String target, int length) {
@@ -44,5 +52,23 @@ public class Algorithms {
                 }
             }
         }
+    }
+
+    public int binarySearchStrings(String strings[], String target, int length) {
+        int left = 0, right = length - 1;
+        int pos = -1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            String midStr = strings[mid];
+            if (midStr.equalsIgnoreCase(target)) {
+                pos = mid;
+                break;
+            } else if (target.compareToIgnoreCase(midStr) < 0) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return pos;
     }
 }
